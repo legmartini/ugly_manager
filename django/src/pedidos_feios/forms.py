@@ -71,3 +71,8 @@ class CanalVendaCreateForm(forms.ModelForm):
 	class Meta:
 		model = CanalVenda
 		fields = ['canal_da_venda']
+
+class ModoEntregaCreateForm(forms.ModelForm):
+	class Meta:
+		model = ModoEntrega
+		fields = ['modo_de_entrega']

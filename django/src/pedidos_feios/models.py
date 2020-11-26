@@ -40,6 +40,12 @@ class CanalVenda(models.Model):
     def __str__(self):
         return self.canal_da_venda
 
+class ModoEntrega(models.Model):
+    modo_de_entrega = models.CharField(max_length=50, blank=True, null=True)
+
+    def __str__(self):
+        return self.modo_de_entrega
+
 class Produto(models.Model):
 
     opcoes = (
@@ -69,7 +75,7 @@ class Produto(models.Model):
     data_da_finalizacao_na_Mouse = models.DateField(null=True, blank=True)
 
     entregue = models.CharField(max_length=8, null=True, choices=opcoes, default="Não", blank=False)
-    modo_de_entrega = models.CharField(max_length=32, null=True, blank=True)
+    modo_de_entrega = models.ForeignKey(ModoEntrega, on_delete=models.CASCADE, blank=True, null=True)
 
     observacao = models.CharField(max_length=256, null=True, blank=True)
 

@@ -26,10 +26,12 @@ urlpatterns = [
     path('delete_pedido/<str:pk>/', views.delete_pedido, name="delete_pedido"),
     path('detalhe_pedido/<str:pk>/', views.detalhe_pedido, name="detalhe_pedido"),
     path('accounts/', include('registration.backends.default.urls')),
+    path('add_opcoes/', views.add_opcoes, name='add_opcoes'),
     path('add_estampa/', views.add_estampa, name='add_estampa'),
     path('add_tamanho/', views.add_tamanho, name='add_tamanho'),
     path('add_modelo/', views.add_modelo, name='add_modelo'),
     path('add_pagamento/', views.add_pagamento, name='add_pagamento'),
     path('add_tipo_de_frete/', views.add_tipo_de_frete, name='add_tipo_de_frete'),
     path('add_canal_da_venda/', views.add_canal_da_venda, name='add_canal_da_venda'),
+    path('add_modo_de_entrega/', views.add_modo_de_entrega, name='add_modo_de_entrega'),
 ]
