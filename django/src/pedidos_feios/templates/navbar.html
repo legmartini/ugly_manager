@@ -1,25 +1,54 @@
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<style>
+    .li {
+        font-family: 'Rubik', sans-serif
+    }
+    .navbar-brand {
+        font-size: 20pt
+    }
+
+    .btn {
+        margin-left: 10px;
+        font-family: 'Rubik', sans-serif;
+    }
+
+    .btn-danger:hover {
+        background-color: #990000;
+        border: 1px solid #990000;
+    }
+
+</style>
+
+
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 <a class="navbar-brand" href="/">Little Ugly</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav ml-auto">
+
         {% if request.user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="/pedidos">Pedidos</a>
+              <li><a href="/pedidos"><button class="btn btn-primary">Ver Pedidos</button></a></li>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/add_pedido">Adicionar Pedidos</a>
+            <li><a href="/add_pedido"><button class="btn btn-success">Adicionar Pedido</button></a></li>
+          </li>
+          <li class="nav-item">
+            <li><a href="/add_opcoes"><button class="btn btn-secondary">Adicionar Opções</button></a></li>
           </li>
         {% endif %}
-        <ul class="navbar-nav">
-            {% if request.user.is_authenticated %}
-            <li><a href="/accounts/logout"><button class="btn btn-danger">{{ user }} | Logout</button></a></li>
-            {% else %}
-            <li><a href="/accounts/login">Login</a></li>
-            {% endif %}
-        </ul>
+
+        {% if request.user.is_authenticated %}
+            <li><a href="/accounts/logout"><button class="btn btn-danger">Sair</button></a></li>
+        {% else %}
+            <li><a href="/accounts/login"><button class="btn btn-primary">Entrar</button></a></li>
+        {% endif %}
+
       </ul>
     </div>
 </nav>

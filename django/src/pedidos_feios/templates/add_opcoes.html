@@ -31,6 +31,17 @@
           font-size: 3.5rem;
         }
       }
+
+      .links_add {
+        text-decoration: none;
+        color: black;
+        padding: 10px;
+      }
+      a:hover {
+        text-decoration: none;
+        color: red;
+      }
+
     </style>
     <!-- Custom styles for this template -->
         <link rel="stylesheet" href="{% static 'css/navbar-top-fixed.css' %}">
@@ -41,18 +52,34 @@
 
   <main role="main" class="container">
     <div class="jumbotron">
-      <h1>Página Inicial - Little Ugly</h1>
+      <h1>Adicionar Novas Opções - Little Ugly</h1>
         {% block title %}
         {% endblock %}
-            <a href="../add_estampa">Adicionar Nova Estampa</a><br>
-            <a href="../add_tamanho">Adicionar Tamanho</a><br>
-            <a href="../add_pagamento">Adicionar Novo Modo de Pagamento</a><br>
-            <a href="../add_modelo">Adicionar Novo Modelo</a><br>
-            <a href="../add_canal_da_venda">Adicionar Canal de Vendas</a><br>
-            <a href="../add_tipo_de_frete">Adicionar Novo Tipo de Frete</a><br>
-            <a href="../add_modo_de_entrega">Adicionar Novo Modo de Entrega</a><br>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a class="links_add" href="../add_tamanho">Adicionar Tamanho</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="links_add" href="../add_pagamento">Adicionar Novo Modo de Pagamento</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="links_add" href="../add_modelo">Adicionar Novo Modelo</a><br>
+                </li>
+                <li class="list-group-item">
+                    <a class="links_add" href="../add_canal_da_venda">Adicionar Canal de Vendas</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="links_add" href="../add_tipo_de_frete">Adicionar Novo Tipo de Frete</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="links_add" href="../add_modo_de_entrega">Adicionar Novo Modo de Entrega</a>
+                </li>
+            </ul>
+
         {% block content %}
         {% endblock %}
+
     </div>
   </main>
 
