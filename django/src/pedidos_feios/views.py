@@ -54,7 +54,8 @@ def lista_pedidos(request):
             writer.writerow(['data_do_pedido', 'nome_do_cliente', 'canal_da_venda', 'modelo', 'estampa', 'tamanho',
                              'cor_do_tecido', 'cor_da_estampa', 'quantidade', 'modo_de_pagamento',
                              'pagamento_efetuado', 'frete', 'valor_do_frete', 'tipo_de_frete','valor_total',
-                             'data_do_pedido_na_Mouse', 'data_da_finalizacao_na_Mouse', 'entregue', 'modo_de_entrega'])
+                             'data_do_pedido_na_Mouse', 'data_da_finalizacao_na_Mouse', 'entregue',
+							 'modo_de_entrega', 'observacao'])
             instance = queryset
             for produto in instance:
                 writer.writerow([produto.data_do_pedido, produto.nome_do_cliente, produto.canal_da_venda, produto.modelo,
@@ -62,7 +63,7 @@ def lista_pedidos(request):
                                  produto.modo_de_pagamento, produto.pagamento_efetuado,
                                  produto.frete, produto.valor_do_frete, produto.tipo_de_frete, produto.valor_total,
                                  produto.data_do_pedido_na_Mouse, produto.data_da_finalizacao_na_Mouse, produto.entregue,
-                                 produto.modo_de_entrega])
+                                 produto.modo_de_entrega, produto.observacao])
                 return response
 
         context = {

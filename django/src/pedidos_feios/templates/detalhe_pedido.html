@@ -158,11 +158,64 @@
             <td>{{queryset.entregue}}</td>
             <td>{{queryset.modo_entrega}}</td>
           </tr>
-          </tbody>
+        </tbody>
       </table>
+
+      <table class="table table-light">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Observação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{queryset.observacao}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <textarea class="js-copytextarea" rows="5" cols="30" >
+        Modelo: {{queryset.modelo}}
+        Estampa: {{queryset.estampa}}
+        Tamanho: {{queryset.tamanho}}
+        Tecido: {{queryset.cor_do_tecido}}
+        Estampa: {{queryset.cor_da_estampa}}</textarea>
+
+      <button class="js-textareacopybtn">Copiar</button>
 
     </div>
   </main>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script></body>
+
+    <script>
+      window.onload = function() {
+        // Pega todos os elementos correspondentes
+        var copyTextareaBtn = Array.prototype.slice.
+          call(document.querySelectorAll('.js-textareacopybtn'));
+        var copyTextarea = Array.prototype.slice.
+          call(document.querySelectorAll('.js-copytextarea'));
+
+        // Laço para percorrer todos os elementos
+        copyTextareaBtn.forEach(function(btn, idx) {
+
+          btn.addEventListener("click", function() {
+
+            // Copia o conteudo do textarea
+            copyTextarea[idx].select();
+
+              var msg = document.execCommand('copy')
+                ? 'funcionou' : 'deu erro';
+              console.log('Compando para copiar texto ' + msg);
+
+          });
+
+        });
+      }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+
+
+  </body>
 </html>

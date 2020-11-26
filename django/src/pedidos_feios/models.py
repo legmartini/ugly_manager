@@ -47,11 +47,6 @@ class Produto(models.Model):
         ('Não', 'Não')
     )
 
-    opcoes_qnt = (
-        ('1', '1'),('2', '2'),('3', '3'),('4', '4'),('5', '5'),
-        ('6', '6'),('7', '7'),('8', '8'),('9', '9'),('10', '10')
-    )
-
     data_do_pedido = models.DateField(blank=False)
     nome_do_cliente = models.CharField(max_length=64, null=True, blank=True)
     canal_da_venda = models.ForeignKey(CanalVenda, on_delete=models.CASCADE, blank=True, null=True)
@@ -75,6 +70,8 @@ class Produto(models.Model):
 
     entregue = models.CharField(max_length=8, null=True, choices=opcoes, default="Não", blank=False)
     modo_de_entrega = models.CharField(max_length=32, null=True, blank=True)
+
+    observacao = models.CharField(max_length=256, null=True, blank=True)
 
     def __str__(self):
         return (f'{self.data_do_pedido}, {self.nome_do_cliente}')
