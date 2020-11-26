@@ -1,0 +1,168 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>Detalhe - {{title}}</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/navbar-fixed/">
+    <!-- Bootstrap core CSS -->
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      td:hover {
+        background-color: #dddddd;
+      }
+
+    </style>
+    <!-- Custom styles for this template -->
+        <link rel="stylesheet" href="{% static 'css/navbar-top-fixed.css' %}">
+  </head>
+  <body>
+
+  {% include 'navbar.html' %}
+
+  <main role="main" class="container">
+    <div class="jumbotron">
+      <h5>Detalhes do Pedido</h5>
+
+      <table class="table table-light">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Data do Pedido</th>
+            <th scope="col">Nome do Cliente</th>
+            <th scope="col">Meio da Venda</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{queryset.data_do_pedido}}</td>
+            <td>{{queryset.nome_do_cliente}}</td>
+            <td>{{queryset.canal_da_venda}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h5>Detalhes do Produto</h5>
+
+      <table class="table table-light">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Modelo</th>
+            <th scope="col">Estampa</th>
+            <th scope="col">Tamanho</th>
+            <th scope="col">Cor do Tecido</th>
+            <th scope="col">Cor da Estampa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{queryset.modelo}}</td>
+            <td>{{queryset.estampa}}</td>
+            <td>{{queryset.tamanho}}</td>
+            <td>{{queryset.cor_do_tecido}}</td>
+            <td>{{queryset.cor_da_estampa}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h5>Detalhes do Pagamento</h5>
+
+      <table class="table table-light">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Modo de Pagamento</th>
+            <th scope="col">Modo de Pagamento Irregular</th>
+            <th scope="col">Pagamento Efetuado</th>
+            <th scope="col">Valor Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{queryset.modo_de_pagamento}}</td>
+            <td>{{queryset.pagamento_efetuado}}</td>
+            <td>{{queryset.valor_total}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h5>Detalhes do Frete</h5>
+
+      <table class="table table-light">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Frete</th>
+            <th scope="col">Valor do Frete</th>
+            <th scope="col">Tipo do Frete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{queryset.frete}}</td>
+            <td>{{queryset.valor_frete}}</td>
+            <td>{{queryset.tipo_frete}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h5>Detalhes da Mouse</h5>
+
+      <table class="table table-light">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Data do Pedido - Mouse</th>
+            <th scope="col">Data da Finalização - Mouse</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{queryset.mouse_data_pedido}}</td>
+            <td>{{queryset.mouse_pronta}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h5>Detalhes da Entrega</h5>
+
+      <table class="table table-light">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Entregue</th>
+            <th scope="col">Data da Entrega</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{queryset.entregue}}</td>
+            <td>{{queryset.modo_entrega}}</td>
+          </tr>
+          </tbody>
+      </table>
+
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script></body>
+</html>
