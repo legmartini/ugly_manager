@@ -36,6 +36,10 @@
         background-color: #dddddd;
       }
 
+      .btn-primary {
+        padding: 10px 42px 10px 42px;
+        position: absolute
+      }
     </style>
     <!-- Custom styles for this template -->
         <link rel="stylesheet" href="{% static 'css/navbar-top-fixed.css' %}">
@@ -174,14 +178,8 @@
         </tbody>
       </table>
 
-      <textarea class="js-copytextarea" rows="5" cols="30" >
-        Modelo: {{queryset.modelo}}
-        Estampa: {{queryset.estampa}}
-        Tamanho: {{queryset.tamanho}}
-        Tecido: {{queryset.cor_do_tecido}}
-        Estampa: {{queryset.cor_da_estampa}}</textarea>
-
-      <button class="js-textareacopybtn">Copiar</button>
+      <textarea class="js-copytextarea" rows="1" cols="100" >{{queryset.modelo}} | {{queryset.estampa}} | {{queryset.tamanho}} | Tecido: {{queryset.cor_do_tecido}} | Estampa: {{queryset.cor_da_estampa}}</textarea>
+      <button class="btn-primary js-textareacopybtn">Copiar</button>
 
     </div>
   </main>
