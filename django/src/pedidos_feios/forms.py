@@ -27,10 +27,12 @@ class Produto_formulario(forms.ModelForm):
 
 class Produto_busca_filtro(forms.ModelForm):
     export_to_csv = forms.BooleanField(required=False)
+    data_inicial = forms.DateField(required=False)
+    data_final = forms.DateField(required=False)
 
     class Meta:
         model = Produto
-        fields = ['nome_do_cliente', 'modo_de_pagamento']
+        fields = ['nome_do_cliente', 'entregue', 'data_inicial', 'data_final']
 
 
 class Produto_update(forms.ModelForm):
@@ -43,29 +45,29 @@ class Produto_update(forms.ModelForm):
 
 
 class EstampaCreateForm(forms.ModelForm):
-	class Meta:
-		model = Estampa
-		fields = ['nome_da_estampa']
+    class Meta:
+        model = Estampa
+        fields = ['estampa']
 
 class TamanhoCreateForm(forms.ModelForm):
-	class Meta:
-		model = Tamanho
-		fields = ['tamanho']
+    class Meta:
+        model = Tamanho
+        fields = ['tamanho']
 
 class ModeloCreateForm(forms.ModelForm):
-	class Meta:
-		model = Modelo
-		fields = ['modelo']
+    class Meta:
+        model = Modelo
+        fields = ['modelo']
 
-class PagamentoCreateForm(forms.ModelForm):
-	class Meta:
-		model = Pagamento
-		fields = ['pagamento']
+class ModoDePagamentoCreateForm(forms.ModelForm):
+    class Meta:
+        model = ModoDePagamento
+        fields = ['modo_de_pagamento']
 
 class TipoFreteCreateForm(forms.ModelForm):
-	class Meta:
-		model = TipoFrete
-		fields = ['tipo_de_frete']
+    class Meta:
+        model = TipoFrete
+        fields = ['tipo_de_frete']
 
 class CanalVendaCreateForm(forms.ModelForm):
 	class Meta:

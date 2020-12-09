@@ -10,12 +10,6 @@
     <meta name="generator" content="Jekyll v3.8.6">
     <title>Detalhe - {{title}}</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/navbar-fixed/">
-    <!-- Bootstrap core CSS -->
-
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -38,15 +32,42 @@
 
       .btn-primary {
         padding: 10px 42px 10px 42px;
-        position: absolute
+        width: 100%;
+        position: relative;
+        border: 0px;
+      }
+      .btn-info {
+        padding: 10px 42px 10px 42px;
+        width: 100%;
+        position: relative;
+        background-color: green;
+        border: 0px;
+      }
+      .btn-info:hover {
+        background-color: darkgreen;
+      }
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
+      a:hover {
+        color: black;
+        text-decoration: none;
+      }
+
+      textarea {
+        width: 100%;
+        height: 130px;
+        text-align: center;
       }
     </style>
-    <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="{% static 'css/navbar-top-fixed.css' %}">
+
   </head>
   <body>
 
   {% include 'navbar.html' %}
+  {% include 'link.html' %}
 
   <main role="main" class="container">
     <div class="jumbotron">
@@ -178,8 +199,23 @@
         </tbody>
       </table>
 
-      <textarea class="js-copytextarea" rows="1" cols="100" >{{queryset.modelo}} | {{queryset.estampa}} | {{queryset.tamanho}} | Tecido: {{queryset.cor_do_tecido}} | Estampa: {{queryset.cor_da_estampa}}</textarea>
-      <button class="btn-primary js-textareacopybtn">Copiar</button>
+
+      <textarea class="js-copytextarea" readonly>Modelo: {{queryset.modelo}}
+Estampa: {{queryset.estampa}}
+Tamanho: {{queryset.tamanho}}
+Tecido: {{queryset.cor_do_tecido}}
+Estampa: {{queryset.cor_da_estampa}}</textarea>
+
+      <button class="btn-primary js-textareacopybtn">Copiar Pedido</button>
+      <a
+              href="https://wa.me/5551984184515?text=
+Modelo: {{queryset.modelo}}%20|%20
+Estampa: {{queryset.estampa}}%20|%20
+Tamanho: {{queryset.tamanho}}%20|%20
+Tecido: {{queryset.cor_do_tecido}}%20|%20
+Estampa: {{queryset.cor_da_estampa}}" target="_blank"><button class="btn-info js-textareacopybtn">
+        WhatsApp para Mouse</button></a>
+
 
     </div>
   </main>

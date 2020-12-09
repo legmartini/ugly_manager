@@ -10,12 +10,6 @@
     <meta name="generator" content="Jekyll v3.8.6">
     <title>{{title}}</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/navbar-fixed/">
-    <!-- Bootstrap core CSS -->
-
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -35,20 +29,25 @@
       .links_add {
         text-decoration: none;
         color: black;
-        padding: 10px;
+        padding: 0px;
+        margin: 20px;
       }
       a:hover {
         text-decoration: none;
-        color: red;
+        color: black;
+      }
+
+      .list-group-item {
+        padding: 0px;
       }
 
     </style>
-    <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="{% static 'css/navbar-top-fixed.css' %}">
+
   </head>
   <body>
 
   {% include 'navbar.html' %}
+  {% include 'link.html' %}
 
   <main role="main" class="container">
     <div class="jumbotron">
@@ -56,26 +55,34 @@
         {% block title %}
         {% endblock %}
 
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a class="links_add" href="../add_tamanho">Adicionar Tamanho</a>
-                </li>
-                <li class="list-group-item">
-                    <a class="links_add" href="../add_pagamento">Adicionar Novo Modo de Pagamento</a>
-                </li>
-                <li class="list-group-item">
-                    <a class="links_add" href="../add_modelo">Adicionar Novo Modelo</a><br>
-                </li>
-                <li class="list-group-item">
-                    <a class="links_add" href="../add_canal_da_venda">Adicionar Canal de Vendas</a>
-                </li>
-                <li class="list-group-item">
-                    <a class="links_add" href="../add_tipo_de_frete">Adicionar Novo Tipo de Frete</a>
-                </li>
-                <li class="list-group-item">
-                    <a class="links_add" href="../add_modo_de_entrega">Adicionar Novo Modo de Entrega</a>
-                </li>
-            </ul>
+            <table class=buttons>
+                <tr>
+                    <td>
+                        <a class="links_add" href="../add_modo_de_entrega">Adicionar Novo Modo de Entrega</a>
+                    </td>
+                    <td>
+                        <a class="links_add" href="../add_estampa">Adicionar Nova Estampa</a>
+                    </td>
+                    <td>
+                        <a class="links_add" href="../add_pagamento">Adicionar Novo Modo de Pagamento</a>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <a class="links_add" href="../add_modelo">Adicionar Novo Modelo</a>
+                    </td>
+                    <td>
+                        <a class="links_add" href="../add_canal_da_venda">Adicionar Canal de Vendas</a>
+                    </td>
+                    <td>
+                        <a class="links_add" href="../add_tipo_de_frete">Adicionar Novo Tipo de Frete</a>
+                    </td>
+                    <td>
+                        <a class="links_add" href="../add_tamanho">Adicionar Novo Tamanho</a>
+                    </td>
+                </tr>
+            </table>
 
         {% block content %}
         {% endblock %}

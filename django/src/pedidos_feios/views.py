@@ -43,8 +43,13 @@ def lista_pedidos(request):
     }
 
     if request.method == 'POST':
+
         queryset = Produto.objects.filter(nome_do_cliente__icontains = form['nome_do_cliente'].value(),
-                                          modo_de_pagamento__exact = form['modo_de_pagamento'].value())
+										  entregue__icontains = form['entregue'].value(),
+										  data_do_pedido__range=[
+											  form['data_inicial'].value(),
+											  form['data_final'].value()
+										  ])
 
 
         if form['export_to_csv'].value() == True:
@@ -121,25 +126,26 @@ def add_estampa(request):
 	form = EstampaCreateForm(request.POST or None)
 	if form.is_valid():
 		form.save()
-		messages.success(request, 'Estampa adicionada com Sucesso!')
-		return redirect('/add_pedido')
+		return redirect('/add_estampa')
 	context = {
 		"form": form,
 		"title": "Add Estampa",
 	}
-	return render(request, "add_opcoes.html", context)
+	return render(request, "add_estampa.html", context)
 
 @login_required
 def add_tamanho(request):
 	form = TamanhoCreateForm(request.POST or None)
+
 	if form.is_valid():
 		form.save()
-		messages.success(request, 'Tamanho adicionado com Sucesso!')
-		return redirect('/add_opcoes')
+		return redirect('/add_tamanho')
+
 	context = {
 		"form": form,
 		"title": "Add Tamanho",
 	}
+
 	return render(request, "add_tamanho.html", context)
 
 @login_required
@@ -147,8 +153,7 @@ def add_modelo(request):
 	form = ModeloCreateForm(request.POST or None)
 	if form.is_valid():
 		form.save()
-		messages.success(request, 'Modelo adicionado com Sucesso!')
-		return redirect('/add_opcoes')
+		return redirect('/add_modelo')
 	context = {
 		"form": form,
 		"title": "Add Modelo",
@@ -157,11 +162,10 @@ def add_modelo(request):
 
 @login_required
 def add_pagamento(request):
-	form = PagamentoCreateForm(request.POST or None)
+	form = ModoDePagamentoCreateForm(request.POST or None)
 	if form.is_valid():
 		form.save()
-		messages.success(request, 'Modo de Pagamento adicionado com Sucesso!')
-		return redirect('/add_opcoes')
+		return redirect('/add_pagamento')
 	context = {
 		"form": form,
 		"title": "Add Pagamento",
@@ -173,8 +177,7 @@ def add_tipo_de_frete(request):
 	form = TipoFreteCreateForm(request.POST or None)
 	if form.is_valid():
 		form.save()
-		messages.success(request, 'Tipo de frete adicionado com Sucesso!')
-		return redirect('/add_opcoes')
+		return redirect('/add_tipo_de_frete')
 	context = {
 		"form": form,
 		"title": "Add Tipo de Frete",
@@ -186,8 +189,7 @@ def add_canal_da_venda(request):
 	form = CanalVendaCreateForm(request.POST or None)
 	if form.is_valid():
 		form.save()
-		messages.success(request, 'Canal de venda adicionado com Sucesso!')
-		return redirect('/add_opcoes')
+		return redirect('/add_canal_da_venda')
 	context = {
 		"form": form,
 		"title": "Add Canal de Venda",
@@ -199,8 +201,7 @@ def add_modo_de_entrega(request):
 	form = ModoEntregaCreateForm(request.POST or None)
 	if form.is_valid():
 		form.save()
-		messages.success(request, 'Modo de entrega adicionado com Sucesso!')
-		return redirect('/add_opcoes')
+		return redirect('/add_modo_de_entrega')
 	context = {
 		"form": form,
 		"title": "Add Modo de Entrega",
