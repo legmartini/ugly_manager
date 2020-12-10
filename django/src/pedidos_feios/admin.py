@@ -3,7 +3,7 @@ from .forms import Produto_formulario
 
 # Register your models here.
 
-from .models import Produto, Estampa
+from .models import *
 
 class Produto_admin(admin.ModelAdmin):
     list_display = ['nome_do_cliente', 'estampa', 'valor_total']

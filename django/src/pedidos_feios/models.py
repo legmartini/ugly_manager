@@ -62,7 +62,7 @@ class Produto(models.Model):
     tamanho = models.ForeignKey(Tamanho, on_delete=models.CASCADE, blank=True, null=True)
     cor_do_tecido = models.CharField(max_length=16, null=True, blank=True)
     cor_da_estampa = models.CharField(max_length=16, null=True, blank=True)
-    quantidade = models.IntegerField(blank=False, null=True)
+    quantidade = models.IntegerField(blank=False, null=True, default=1)
 
     modo_de_pagamento = models.ForeignKey(ModoDePagamento, on_delete=models.CASCADE, blank=True, null=True)
     pagamento_efetuado = models.CharField(max_length=8, null=True, choices=opcoes, default="Não", blank=False)

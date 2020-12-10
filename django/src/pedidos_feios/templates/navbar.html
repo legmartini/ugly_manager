@@ -1,26 +1,28 @@
+{% load static %}
+
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<style>
-    .li {
-        font-family: 'Rubik', sans-serif
-    }
-    .navbar-brand {
-        font-size: 20pt
-    }
 
-    .btn {
-        margin-left: 10px;
-        font-family: 'Rubik', sans-serif;
-    }
+    <style>
+        .li {
+            font-family: 'Rubik', sans-serif
+        }
+        .navbar-brand {
+            font-size: 20pt
+        }
 
-    .btn-danger:hover {
-        background-color: #990000;
-        border: 1px solid #990000;
-    }
+        .btn {
+            margin-left: 10px;
+            font-family: 'Rubik', sans-serif;
+        }
 
-</style>
-
+        .btn-danger:hover {
+            background-color: #990000;
+            border: 1px solid #990000;
+        }
+    </style>
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 <a class="navbar-brand" href="/">Little Ugly</a>
